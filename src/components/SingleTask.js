@@ -1,8 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 
 export const SingleTask = (props) => {
-
-  const [isEditing, setIsEditing] = useState(true);
   //  console.log(props.singleData.id);
   const deleteHandler = () => {
       const Key =props.singleData.id;
@@ -11,11 +9,7 @@ export const SingleTask = (props) => {
   }
 
   const editHandler = () => {
-    const Key = props.singleData.id;
-    const getdata = props.datas.find( val => val.id === Key);
-    setIsEditing(() => {return false });
-    console.log({...getdata, isEditing});
-    props.editdata({...getdata, isEditing});
+    console.log("here we are on editing");
   }
 
   return (

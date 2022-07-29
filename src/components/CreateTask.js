@@ -1,44 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./CreateTask.css";
 
 export const CreateTask = (props) => {
-  // const {isEditing,title,task}= props.sendEditData;
-  // console.log(isEditing);
-
-  // const {isEditing, editData} = { props.sendEditData.isEditing, ...props.sendEditData}
-
-  // const titles = props.sendEditData.title;
-  // const tasks = props.sendEditData.task;
-  const { isEditing, ...datas } = props.sendEditData;
-  // console.log(props.sendEditData.title);
-
-  // console.log(isEditing);
-  // console.log(datas);
-
-  // var initialTitle = ""
-  // var initialTask = ""
-
-  // useEffect(()=>  {
-  //   initialTitle = datas.title
-  //   initialTask = datas.task
-  // }, [isEditing])
 
   const [title, setTitle] = useState("");
   const [task, setTask] = useState("");
 
-  // useEffect(()=>
-  // {
-
-  // },[title,task])
-
-  // console.log(props.sendEditData);
 
   const tilteDataHandler = (event) => {
-    isEditing ? setTitle(datas.title) : setTitle(event.target.value)
+    setTitle(event.target.value)
   };
 
   const taskDataHandler = (event) => {
-    isEditing ? setTask(datas.task) : setTask(event.target.value)
+    setTask(event.target.value)
   };
 
   const formDataHandle = (event) => {
@@ -51,10 +25,7 @@ export const CreateTask = (props) => {
       task: task,
     };
 
-
-    isEditing ? props.FormData(datas) : props.FormData(data);
-
-    console.log("datas - ", datas);
+    props.FormData(data);
     console.log("data- ", data);
 
     setTitle("");
@@ -70,8 +41,7 @@ export const CreateTask = (props) => {
             className="form-control"
             placeholder="Enter Title"
             onChange={tilteDataHandler}
-            // value={title}
-            value={isEditing ? datas.title : title}
+            value={title}
           />
         </div>
         <div className="form-group">
@@ -81,13 +51,12 @@ export const CreateTask = (props) => {
             className="form-control"
             placeholder="Enter Task"
             onChange={taskDataHandler}
-            // value={task}
-            value={isEditing ? datas.task : task}
+            value={task}
           />
         </div>
         <p>{title}</p>
         <button type="submit" className="btn btn-success">
-          {isEditing ? "Update Task" : "Create Task"}
+          {"Create Task"}
         </button>
       </form>
     </div>
