@@ -6,6 +6,12 @@ export const Task = (props) => {
     console.log(val);
     props.removedata(val);
   };
+
+  const editTrackData = (key, flag, getUpdatedData) => {
+    console.log(key, flag);
+    props.editDataBack(key, flag, getUpdatedData);
+  };
+
   return (
     <div>
       {props.data.map((taskData) => {
@@ -15,6 +21,7 @@ export const Task = (props) => {
             key={taskData.id}
             datas={props.data}
             trackdata={backdata}
+            EditDataBack={editTrackData}
           />
         );
       })}

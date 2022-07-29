@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import "./CreateTask.css";
 
-export const CreateTask = (props) => {
-  const [title, setTitle] = useState("");
-  const [task, setTask] = useState("");
+export const EditTask = (props) => {
+  const [title, setTitle] = useState(props.updatedArray.title);
+  const [task, setTask] = useState(props.updatedArray.task);
 
   const tilteDataHandler = (event) => {
     setTitle(event.target.value);
@@ -13,33 +12,29 @@ export const CreateTask = (props) => {
     setTask(event.target.value);
   };
 
-  const formDataHandle = (event) => {
+  const updateFormHandler = (event) => {
     event.preventDefault();
-    console.log(title, task);
-
     const data = {
-      id: Math.floor(Math.random() * 10),
+      id: props.datas,
       title: title,
       task: task,
     };
-
-    props.FormData(data);
-    console.log("data- ", data);
-
-    setTitle("");
-    setTask("");
+    props.upDateFormData(data);
   };
+
+  console.log(props.datas);
+
   return (
     <div className="container mt-5 mb-3">
-      <form onSubmit={formDataHandle}>
+      <form onSubmit={updateFormHandler}>
         <div className="form-group">
           <label>Title</label>
           <input
             type="text"
             className="form-control"
             placeholder="Enter Title"
+            defaultValue={props.updatedArray.title}
             onChange={tilteDataHandler}
-            value={title}
           />
         </div>
         <div className="form-group">
@@ -48,12 +43,12 @@ export const CreateTask = (props) => {
             type="text"
             className="form-control"
             placeholder="Enter Task"
+            defaultValue={props.updatedArray.task}
             onChange={taskDataHandler}
-            value={task}
           />
         </div>
-        <button type="submit" className="btn btn-success">
-          {"Create Task"}
+        <button type="submit" className="btn btn-primary">
+          {"Update Task"}
         </button>
       </form>
     </div>
