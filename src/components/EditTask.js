@@ -22,8 +22,6 @@ export const EditTask = (props) => {
     props.upDateFormData(data);
   };
 
-  console.log(props.datas);
-
   return (
     <div className="container mt-5 mb-3">
       <form onSubmit={updateFormHandler}>

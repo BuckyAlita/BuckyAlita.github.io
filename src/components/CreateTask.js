@@ -15,7 +15,6 @@ export const CreateTask = (props) => {
 
   const formDataHandle = (event) => {
     event.preventDefault();
-    console.log(title, task);
 
     const data = {
       id: Math.floor(Math.random() * 10),
@@ -24,7 +23,6 @@ export const CreateTask = (props) => {
     };
 
     props.FormData(data);
-    console.log("data- ", data);
 
     setTitle("");
     setTask("");

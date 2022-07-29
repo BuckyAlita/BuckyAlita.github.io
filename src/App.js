@@ -30,7 +30,6 @@ function App() {
   };
 
   const editdatahandler = (key, flag, getUpdatedData) => {
-    console.log(" in App", key, flag, getUpdatedData);
     setEditId(() => {
       return key;
     });
@@ -43,7 +42,6 @@ function App() {
   };
 
   const upDateFormDataHandler = (updatedData) => {
-    console.log("naya data", updatedData);
     const datas = data.find((val) => val.id === updatedData.id);
     if (!datas) {
       data.push(updatedData);
@@ -56,7 +54,6 @@ function App() {
     });
   };
 
-  console.log("in state", editID, flag, ArrayUpdated);
   // useEffect(() => {
   //   //use of local storage
   //   localStorage.setItem("data", JSON.stringify(data));
