@@ -38,6 +38,7 @@ export const CreateTask = (props) => {
             placeholder="Enter Title"
             onChange={tilteDataHandler}
             value={title}
+            required
           />
         </div>
         <div className="form-group">
@@ -48,6 +49,7 @@ export const CreateTask = (props) => {
             placeholder="Enter Task"
             onChange={taskDataHandler}
             value={task}
+            required
           />
         </div>
         <button type="submit" className="btn btn-success">

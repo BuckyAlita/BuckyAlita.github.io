@@ -33,6 +33,7 @@ export const EditTask = (props) => {
             placeholder="Enter Title"
             defaultValue={props.updatedArray.title}
             onChange={tilteDataHandler}
+            required
           />
         </div>
         <div className="form-group">
@@ -43,6 +44,7 @@ export const EditTask = (props) => {
             placeholder="Enter Task"
             defaultValue={props.updatedArray.task}
             onChange={taskDataHandler}
+            required
           />
         </div>
         <button type="submit" className="btn btn-primary">
