@@ -1,15 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./App.css";
 import { Task } from "./components/Task";
 import { CreateTask } from "./components/CreateTask";
 import { EditTask } from "./components/EditTask";
 
 let initialData = [
-  {
-    id: 5,
-    title: "Title Sample 1",
-    task: "Let's create some task",
-  },
+  
 ];
 
 function App() {
